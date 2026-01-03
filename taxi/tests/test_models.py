@@ -7,10 +7,10 @@ from taxi.models import Car, Manufacturer
 class ModelTestCase(TestCase):
     def test_manufacturer_str(self):
         manufacturer = Manufacturer.objects.create(
-            name="BMW",
+            name="BMW_test1",
             country="Germany",
         )
-        self.assertEqual(str(manufacturer), "BMW Germany")
+        self.assertEqual(str(manufacturer), "BMW_test1 Germany")
 
     def test_driver_str(self):
         driver = get_user_model().objects.create_user(
@@ -20,14 +20,11 @@ class ModelTestCase(TestCase):
             first_name="Test",
             last_name="Driver",
         )
-        self.assertEqual(
-            str(driver),
-            "test_driver (Test Driver)"
-        )
+        self.assertEqual(str(driver), "test_driver (Test Driver)")
 
     def test_car_str(self):
         manufacturer = Manufacturer.objects.create(
-            name="Audi",
+            name="Audi_test2",
             country="Germany",
         )
         car = Car.objects.create(
